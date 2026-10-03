@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CIDA — Learn Job-Ready Data & Tech Skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/cida-favicon.png">
+<style>
+  :root{
+    --paper:#F1EEE3;
+    --paper-2:#E9E4D4;
+    --ink:#16211D;
+    --ink-soft:#3C453F;
+    --teal:#2B5F55;
+    --teal-deep:#132923;
+    --amber:#D98E2B;
+    --amber-deep:#B4711A;
+    --line: rgba(22,33,29,0.14);
+    --line-strong: rgba(22,33,29,0.28);
+    --white:#FBFAF6;
+    --radius: 3px;
+    --maxw: 1180px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ margin:0; padding:0; list-style:none; }
+  h1,h2,h3,h4{ font-family:'Fraunces', serif; font-weight:600; margin:0; color:var(--ink); }
+  p{ margin:0; }
+  button{ font-family:inherit; cursor:pointer; }
+  :focus-visible{ outline:2px solid var(--teal); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position:sticky; top:0; z-index:40;
+    background:rgba(241,238,227,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 0; gap:24px;
+  }
+  .brand {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 100px;
+  height: 40px;
+}
+
+.brand img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+  .brand .dot{ color:var(--amber); }
+  nav.primary{ display:flex; gap:32px; flex:1; justify-content:flex-end; }
+  nav.primary a.is-current{ color:var(--ink); font-weight:600; }
+  nav.primary a{
+    font-size:0.95rem; color:var(--ink-soft); position:relative; padding:4px 0;
+  }
+  nav.primary a:hover{ color:var(--ink); }
+  nav.primary details{ position:relative; }
+  nav.primary summary{ list-style:none; cursor:pointer; font-size:0.95rem; color:var(--ink-soft); display:flex; align-items:center; gap:5px; }
+  nav.primary summary::-webkit-details-marker{ display:none; }
+  nav.primary summary:hover{ color:var(--ink); }
+  nav.primary details[open] summary{ color:var(--ink); }
+  .caret{ width:8px; height:8px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(45deg) translateY(-2px); transition:transform .15s ease; }
+  nav.primary details[open] .caret{ transform:rotate(225deg) translateY(2px); }
+  .dropdown{
+    position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%);
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+    padding:10px; min-width:200px; box-shadow:0 12px 24px rgba(20,30,26,0.12);
+  }
+  .dropdown a{ display:block; padding:9px 12px; font-size:0.92rem; border-radius:2px; color:var(--ink-soft); }
+  .dropdown a:hover{ background:var(--paper); color:var(--ink); }
+
+  .head-actions{ display:flex; align-items:center; gap:16px; flex:0 0 auto; }
+  .icon-btn{ width:36px; height:36px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:var(--ink-soft); }
+  .icon-btn:hover{ background:var(--paper-2); color:var(--ink); }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:11px 22px; border-radius:var(--radius); font-size:0.95rem; font-weight:600;
+    border:1px solid transparent; white-space:nowrap;
+  }
+  .btn-amber{ background:var(--amber); color:var(--teal-deep); }
+  .btn-amber:hover{ background:var(--amber-deep); }
+  .btn-outline{ border-color:var(--line-strong); color:var(--ink); }
+  .btn-outline:hover{ border-color:var(--ink); }
+  .btn-ghost{ color:var(--ink-soft); font-weight:500; }
+  .btn-ghost:hover{ color:var(--ink); }
+  .btn-sm{ padding:8px 16px; font-size:0.86rem; }
+
+  .nav-toggle{ display:none; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0/100% 64px,
+      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/64px 100%,
+      var(--paper);
+    background-attachment:local;
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+    padding-top:76px; padding-bottom:76px;
+  }
+  .kicker{ font-size:0.98rem; color:var(--teal); font-weight:600; margin-bottom:18px; }
+  .hero h1{
+    font-size:clamp(2.3rem, 4vw, 3.4rem); line-height:1.06; letter-spacing:-0.01em;
+    max-width:14ch;
+  }
+  .hero h1 em{ font-style:italic; color:var(--teal); }
+  .hero .sub{ margin-top:22px; font-size:1.12rem; color:var(--ink-soft); max-width:46ch; }
+  .hero .cta-row{ margin-top:32px; display:flex; gap:14px; flex-wrap:wrap; }
+  .hero .stats{ margin-top:44px; display:flex; gap:36px; flex-wrap:wrap; }
+  .hero .stats div strong{ display:block; font-family:'Fraunces', serif; font-size:1.7rem; color:var(--ink); }
+  .hero .stats div span{ font-size:0.86rem; color:var(--ink-soft); }
+
+  .dash-card{
+    background:var(--teal-deep); border-radius:6px; padding:26px;
+    color:var(--white); box-shadow:0 24px 50px -18px rgba(19,41,35,0.55);
+    transform:rotate(1.2deg);
+  }
+  .dash-card .dash-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+  .dash-card .dash-top span{ font-size:0.8rem; color:#B8CFC7; }
+  .dash-card .dots{ display:flex; gap:6px; }
+  .dash-card .dots i{ width:8px; height:8px; border-radius:50%; background:#3F6A60; display:block; }
+  .dash-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px; }
+  .dash-stat{ background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); border-radius:4px; padding:14px; }
+  .dash-stat .v{ font-family:'Fraunces', serif; font-size:1.5rem; color:var(--amber); }
+  .dash-stat .l{ font-size:0.78rem; color:#B8CFC7; margin-top:2px; }
+  .dash-bars{ display:flex; align-items:flex-end; gap:8px; height:90px; background:rgba(255,255,255,0.05); border-radius:4px; padding:12px; }
+  .dash-bars i{ flex:1; background:linear-gradient(180deg, var(--amber), #8f5e17); border-radius:2px 2px 0 0; display:block; }
+
+  /* ---------- generic section scaffolding ---------- */
+  section{ padding:88px 0; }
+  .section-head{ max-width:640px; margin-bottom:48px; }
+  .section-head .kicker{ margin-bottom:12px; }
+  .section-head h2{ font-size:clamp(1.7rem, 2.6vw, 2.3rem); }
+  .section-head p{ margin-top:14px; color:var(--ink-soft); font-size:1.05rem; }
+  .section-alt{ background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .section-dark{ background:var(--teal-deep); color:var(--white); }
+  .section-dark .section-head h2{ color:var(--white); }
+  .section-dark .section-head p{ color:#C6D8D2; }
+
+  /* ---------- Categories ---------- */
+  .cat-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .cat-card{ background:var(--paper); padding:26px 22px; min-height:150px; display:flex; flex-direction:column; justify-content:space-between; transition:background .15s ease; }
+  .cat-card:hover{ background:var(--white); }
+  .cat-card .num{ font-size:0.78rem; color:var(--ink-soft); }
+  .cat-card h3{ font-size:1.08rem; font-weight:600; margin-top:14px; }
+  .cat-card .count{ font-size:0.84rem; color:var(--teal); margin-top:6px; }
+
+  /* ---------- Course cards ---------- */
+  .course-toolbar{ display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:36px; flex-wrap:wrap; gap:16px; }
+  .course-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; }
+  .course-card{ background:var(--white); border:1px solid var(--line); border-radius:5px; overflow:hidden; display:flex; flex-direction:column; }
+  .course-thumb {
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+}
+
+.course-thumb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Optional dark overlay for better badge visibility */
+.course-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.05)
+  );
+  pointer-events: none;
+}
+
+.course-thumb .level-tag {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 12px;
+
+  background: rgba(251, 250, 246, 0.92);
+  color: var(--ink);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+  .course-body{ padding:20px 20px 22px; flex:1; display:flex; flex-direction:column; }
+  .course-body h3{ font-size:1.12rem; line-height:1.3; }
+  .course-body .desc{ font-size:0.9rem; color:var(--ink-soft); margin-top:8px; }
+  .course-meta{ display:flex; gap:14px; font-size:0.82rem; color:var(--ink-soft); margin-top:16px; flex-wrap:wrap; }
+  .course-meta span{ display:flex; align-items:center; gap:5px; }
+  .rating{ margin-top:12px; font-size:0.86rem; color:var(--amber-deep); font-weight:600; }
+  .rating small{ color:var(--ink-soft); font-weight:400; margin-left:4px; }
+  .price-row{ margin-top:18px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .price-row .prices{ display:flex; align-items:baseline; gap:8px; }
+  .price-row .now{ font-family:'Fraunces', serif; font-size:1.25rem; }
+  .price-row .was{ font-size:0.85rem; color:var(--ink-soft); text-decoration:line-through; }
+
+  /* ---------- Why us ---------- */
+  .why-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:0; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+  .why-item{ padding:30px 26px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .why-item h3{ font-size:1.02rem; margin-top:14px; }
+  .why-item p{ font-size:0.88rem; color:var(--ink-soft); margin-top:8px; }
+  .why-mark{ width:34px; height:34px; border:1.5px solid var(--teal); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--teal); font-family:'Fraunces', serif; font-size:0.95rem; }
+
+  /* ---------- Learning path ---------- */
+  .path-rail{ display:flex; align-items:stretch; gap:0; overflow-x:auto; padding-bottom:8px; }
+  .path-step{ flex:0 0 190px; padding:20px 18px; position:relative; }
+  .path-step h4{ font-size:0.98rem; margin-top:10px; }
+  .path-step p{ font-size:0.82rem; color:var(--ink-soft); margin-top:6px; }
+  .path-idx{ font-family:'Fraunces', serif; font-size:1.1rem; color:var(--amber); }
+  .path-arrow{ flex:0 0 40px; display:flex; align-items:center; justify-content:center; color:var(--line-strong); font-size:1.3rem; }
+  .path-outcome{ margin-top:28px; padding:20px 24px; background:var(--paper-2); border-left:3px solid var(--amber); border-radius:2px; font-size:0.94rem; color:var(--ink-soft); }
+
+  /* ---------- Live/Recorded ---------- */
+  .format-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .format-card{ border:1px solid rgba(255,255,255,0.14); border-radius:5px; padding:24px 20px; background:rgba(255,255,255,0.03); cursor:pointer; transition:border-color .2s ease, background .2s ease, transform .2s ease; }
+  .format-card.is-highlight,
+  .format-card:hover,
+  .format-card:focus-visible{ border-color:var(--amber); background:rgba(217,142,43,0.08); }
+  .format-card:hover,
+  .format-card:focus-visible{ transform:translateY(-4px); }
+  .format-card:hover h3,
+  .format-card:focus-visible h3{ color:var(--amber); }
+  /* while the grid is being hovered, Live gives up its default highlight unless it is the hovered card */
+  .format-grid:hover .format-card.is-highlight:not(:hover),
+  .format-grid:focus-within .format-card.is-highlight:not(:focus-visible){ border-color:rgba(255,255,255,0.14); background:rgba(255,255,255,0.03); }
+  .format-card h3{ transition:color .2s ease; }
+  .format-card h3{ color:var(--white); font-size:1.08rem; }
+  .format-card ul{ margin-top:14px; }
+  .format-card li{ font-size:0.86rem; color:#C6D8D2; padding:5px 0 5px 16px; position:relative; }
+  .format-card li::before{ content:''; position:absolute; left:0; top:12px; width:6px; height:1.5px; background:var(--amber); }
+
+  /* ---------- Projects ---------- */
+  .project-strip {display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;}
+  .project-card { position: relative; border-radius: 5px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--teal); display: flex;flex-direction: column; justify-content: flex-end; padding: 22px; }
+
+/* Image holder */
+.project-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Keep text above the image */
+.project-card h3,
+.project-card p {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+}
+
+.project-card h3 {
+  font-size: 1.15rem;
+}
+
+.project-card p {
+  font-size: 0.84rem;
+  color: #DCE7E2;
+  margin-top: 6px;
+}
+
+  /* ---------- Free resources ---------- */
+  .res-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+  .res-card{ text-align:left; padding:22px 16px; background:var(--white); border:1px solid var(--line); border-radius:5px; }
+  .res-card .glyph{ font-family:'Fraunces', serif; font-size:1.5rem; color:var(--teal); }
+  .res-card h4{ font-size:0.95rem; margin-top:12px; }
+  .res-card p{ font-size:0.8rem; color:var(--ink-soft); margin-top:5px; }
+
+  /* ---------- Testimonials ---------- */
+  .test-slider{ position:relative; }
+  .test-track{
+    display:flex; gap:24px; overflow-x:auto; scroll-snap-type:x mandatory;
+    scroll-behavior:smooth; scrollbar-width:none; -ms-overflow-style:none;
+    -webkit-overflow-scrolling:touch; align-items:stretch;
+  }
+  .test-track::-webkit-scrollbar{ display:none; }
+  .test-track .test-card{ flex:0 0 calc((100% - 48px) / 3); scroll-snap-align:start; }
+  .test-controls{ display:flex; align-items:center; justify-content:space-between; margin-top:28px; gap:16px; }
+  .test-dots{ display:flex; gap:8px; }
+  .test-dots button{ width:26px; height:4px; border:0; padding:0; border-radius:2px; background:var(--line-strong); transition:background .2s ease, width .2s ease; }
+  .test-dots button.is-active{ background:var(--teal); width:40px; }
+  .test-arrows{ display:flex; gap:10px; }
+  .test-arrows button{ width:42px; height:42px; border-radius:50%; border:1px solid var(--line-strong); background:transparent; color:var(--ink); display:flex; align-items:center; justify-content:center; transition:background .15s ease, color .15s ease, border-color .15s ease; }
+  .test-arrows button svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .test-arrows button:hover:not(:disabled){ background:var(--teal); border-color:var(--teal); color:var(--white); }
+  .test-arrows button:disabled{ opacity:0.35; cursor:default; }
+  .test-card{ background:var(--white); border:1px solid var(--line); border-radius:5px; padding:26px; display:flex; flex-direction:column; height:100%; }
+  .test-card .quote{ font-size:0.98rem; color:var(--ink); flex:1; }
+  .test-card .who{ display:flex; align-items:center; gap:12px; margin-top:20px; }
+  .avatar{ width:42px; height:42px; border-radius:50%; background:var(--teal); color:var(--white); display:flex; align-items:center; justify-content:center; font-family:'Fraunces', serif; font-size:1rem; }
+  .who h5{ font-size:0.92rem; margin:0; }
+  .who span{ font-size:0.8rem; color:var(--ink-soft); }
+  .stars{ color:var(--amber-deep); font-size:0.85rem; margin-bottom:10px; }
+
+  /* ---------- Instructors ---------- */
+  .instr-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  .instr-card{ text-align:left; }
+  .instr-photo{ aspect-ratio:1; border-radius:5px; background:linear-gradient(150deg, var(--paper-2), var(--teal)); margin-bottom:14px; }
+  .instr-card h4{ font-size:1rem; }
+  .instr-card .role{ font-size:0.84rem; color:var(--teal); margin-top:2px; }
+  .instr-card .stat{ font-size:0.78rem; color:var(--ink-soft); margin-top:8px; }
+
+  /* ---------- Pricing ---------- */
+  .price-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; align-items:stretch; }
+  .price-card{ background:var(--white); border:1px solid var(--line); border-radius:6px; padding:28px 24px; display:flex; flex-direction:column; }
+  .price-card.is-popular{ border-color:var(--teal); box-shadow:0 18px 34px -20px rgba(43,95,85,0.5); position:relative; }
+  .popular-tag{ position:absolute; top:-13px; left:24px; background:var(--teal); color:var(--white); font-size:0.72rem; font-weight:600; padding:4px 12px; border-radius:20px; }
+  .price-card h3{ font-size:1.05rem; }
+  .price-card .amount{ font-family:'Fraunces', serif; font-size:2rem; margin-top:14px; }
+  .price-card .amount small{ font-family:'IBM Plex Sans', sans-serif; font-size:0.85rem; color:var(--ink-soft); font-weight:400; }
+  .price-card ul{ margin-top:20px; flex:1; }
+  .price-card li{ font-size:0.86rem; color:var(--ink-soft); padding:6px 0 6px 18px; position:relative; }
+  .price-card li::before{ content:''; position:absolute; left:0; top:13px; width:7px; height:1.5px; background:var(--teal); }
+  .price-card .btn{ margin-top:22px; width:100%; }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{ max-width:760px; }
+  .faq-item{ border-bottom:1px solid var(--line); }
+  .faq-item summary{ list-style:none; padding:22px 4px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:1.02rem; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-plus{ width:20px; height:20px; position:relative; flex:0 0 auto; }
+  .faq-plus::before, .faq-plus::after{ content:''; position:absolute; background:var(--ink); top:50%; left:50%; transform:translate(-50%,-50%); }
+  .faq-plus::before{ width:14px; height:1.5px; }
+  .faq-plus::after{ width:1.5px; height:14px; transition:transform .15s ease; }
+  .faq-item[open] .faq-plus::after{ transform:translate(-50%,-50%) rotate(90deg) scaleY(0); }
+  .faq-item p{ padding:0 4px 22px; color:var(--ink-soft); max-width:60ch; }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{ background:var(--teal-deep); border-radius:8px; padding:56px; display:flex; justify-content:space-between; align-items:center; gap:30px; flex-wrap:wrap; }
+  .final-cta h2{ color:var(--white); font-size:clamp(1.6rem,3vw,2.1rem); max-width:16ch; }
+  .final-cta p{ color:#C6D8D2; margin-top:12px; max-width:40ch; }
+
+  /* ---------- Footer ---------- */
+  footer{ background:var(--ink); color:#CBD3CF; padding:64px 0 28px; }
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.1);}  .foot-brand{ font-family:'Fraunces', serif; font-size:1.3rem; color:var(--white); font-weight:700; }
+  .foot-brand + p{ margin-top:14px; font-size:0.88rem; color:#9DA89F; max-width:32ch; }
+  .foot-col h5{ font-size:0.86rem; color:var(--white); font-weight:600; margin-bottom:14px; }
+  .foot-col a{ display:block; font-size:0.88rem; color:#9DA89F; padding:5px 0; }
+  .foot-col a:hover{ color:var(--white); }
+  .foot-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:24px; font-size:0.8rem; color:#8B978D; flex-wrap:wrap; gap:12px; }
+  .foot-social{ display:flex; gap:14px; }
+  .foot-social a{ width:36px; height:36px; border:1px solid rgba(255,255,255,0.16); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#CBD3CF; transition:background .15s ease, color .15s ease, border-color .15s ease; }
+  .foot-social a svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .foot-social a:hover{ background:var(--amber); border-color:var(--amber); color:var(--teal-deep); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px){
+    .hero .wrap{ grid-template-columns:1fr; padding-top:44px; }
+    .dash-card{ transform:none; max-width:420px; }
+    .cat-grid{ grid-template-columns:repeat(2,1fr); }
+    .course-grid{ grid-template-columns:repeat(2,1fr); }
+    .why-grid{ grid-template-columns:repeat(2,1fr); }
+    .format-grid{ grid-template-columns:repeat(2,1fr); }
+    .project-strip{ grid-template-columns:1fr 1fr; }
+    .res-grid{ grid-template-columns:repeat(3,1fr); }
+    .test-track .test-card{ flex-basis:calc((100% - 24px) / 2); }
+    .instr-grid{ grid-template-columns:repeat(2,1fr); }
+    .price-grid{ grid-template-columns:repeat(2,1fr); }
+    .foot-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width: 620px){
+    .cat-grid, .course-grid, .why-grid, .format-grid, .project-strip, .res-grid, .instr-grid, .price-grid{ grid-template-columns:1fr; }
+    .test-track .test-card{ flex-basis:100%; }
+    .foot-grid{ grid-template-columns:1fr; }
+    section{ padding:60px 0; }
+    .final-cta{ padding:36px 24px; flex-direction:column; align-items:flex-start; }
+    .course-toolbar{ flex-direction:column; align-items:flex-start; }
+    nav.primary{ gap:18px; }
+    nav.primary a{ font-size:0.88rem; }
+    .wrap{ padding:0 18px; }
+  }
+  .course-thumb{ background:var(--teal); }
+  .test-track{ align-items:stretch; }
+  .test-track .test-card{ height:auto; align-self:stretch; }
+  .test-track .test-card .quote{ flex:1 1 auto; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <!-- Logo -->
+        <a class="brand" href="index.html"> <img src="images/cida-logo.png" alt="CIDA"></a>
+      
+    <nav class="primary">
+      <a href="index.html" class="is-current">Home</a>
+      <a href="index.html#courses">Course</a>
+      <a href="about.html">About us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker">For first-time learners and career switchers</p>
+        <h1>Learn skills employers are <em>actually</em> hiring for</h1>
+        <p class="sub">Practical, project-based courses in Data Analytics, Programming, AI, Web Development and Office Skills — built around real datasets, not slideshows.</p>
+        <div class="cta-row">
+          <a href="#courses" class="btn btn-amber">Explore courses</a>
+          <a href="#path" class="btn btn-outline">Start a career path</a>
+          <a href="#resources" class="btn btn-ghost">View free courses</a>
+        </div>
+        <div class="stats">
+          <div><strong>1,000+</strong><span>students trained</span></div>
+          <div><strong>140+</strong><span>practical projects</span></div>
+          <div><strong>4.7 / 5</strong><span>average course rating</span></div> 
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-top">
+          <span>Your learning dashboard</span>
+          <div class="dots"><i></i><i></i><i></i></div>
+        </div>
+        <div class="dash-grid">
+          <div class="dash-stat"><div class="v">82%</div><div class="l">Python for Analytics</div></div>
+          <div class="dash-stat"><div class="v">6</div><div class="l">Projects submitted</div></div>
+        </div>
+        <div class="dash-bars">
+          <i style="height:35%"></i><i style="height:55%"></i><i style="height:40%"></i>
+          <i style="height:75%"></i><i style="height:60%"></i><i style="height:90%"></i><i style="height:50%"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <!-- <section id="categories">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Course categories</p>
+        <h2>Pick a subject, or follow a full path</h2>
+        <p>Every category below has beginner, intermediate and job-ready tracks.</p>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-card" href="#"><span class="num">01</span><h3>Data Analytics</h3><span class="count">32 courses</span></a>
+        <a class="cat-card" href="#"><span class="num">02</span><h3>Data Science</h3><span class="count">21 courses</span></a>
+        <a class="cat-card" href="#"><span class="num">03</span><h3>Artificial Intelligence</h3><span class="count">18 courses</span></a>
+        <a class="cat-card" href="#"><span class="num">04</span><h3>Python Programming</h3><span class="count">27 courses</span></a>
+        <a class="cat-card" href="#"><span class="num">05</span><h3>Web Development</h3><span class="count">24 courses</span></a>
+        <a class="cat-card" href="#"><span class="num">06</span><h3>Full Stack Development</h3><span class="count">15 courses</span></a>
+        <a class="cat-card" href="#"><span class="num">07</span><h3>SQL & Databases</h3><span class="count">19 courses</span></a>
+        <a class="cat-card" href="#"><span class="num">08</span><h3>Excel & Power BI</h3><span class="count">23 courses</span></a>
+        <a class="cat-card" href="#"><span class="num">09</span><h3>Digital Marketing</h3><span class="count">14 courses</span></a>
+        <a class="cat-card" href="#"><span class="num">10</span><h3>Office & Productivity</h3><span class="count">11 courses</span></a>
+        <a class="cat-card" href="#"><span class="num">11</span><h3>Programming Languages</h3><span class="count">20 courses</span></a>
+        <a class="cat-card" href="#"><span class="num">12</span><h3>Interview Preparation</h3><span class="count">9 tracks</span></a>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- FEATURED COURSES -->
+  <section class="section-alt" id="courses">
+    <div class="wrap">
+      <div class="course-toolbar">
+        <div class="section-head" style="margin-bottom:0;">
+          <p class="kicker">Featured courses</p>
+          <h2>Popular with new students this month</h2>
+        </div>
+        <a href="courses.html" class="btn btn-outline btn-sm">View all courses</a>
+      </div>
+
+      <div class="course-grid">
+
+       <article class="course-card">
+         <div class="course-thumb">
+           <img src="images/c-cpp-programming.jpg" alt="C / C++ Programming">
+           <span class="level-tag">Beginner</span>
+         </div>
+         <div class="course-body">
+           <h3>C / C++ Programming</h3>
+           <p class="desc">Build strong programming logic with C, then move on to object-oriented C++.</p>
+           <div class="course-meta">
+             <span>3 Months</span>
+             <span>36 lectures</span>
+           </div>
+           <div class="rating">★ 4.7 <small>(1,420 ratings)</small></div>
+           <div class="price-row">
+             <div class="prices">
+               <span class="now">₹7,499</span>
+               <span class="was">₹9,999</span>
+             </div>
+             <a href="c-cpp-programming.html" class="btn btn-amber btn-sm">View course</a>
+           </div>
+         </div>
+       </article>
+
+       <article class="course-card">
+         <div class="course-thumb">
+           <img src="images/core-advanced-python.jpg" alt="Core &amp; Advanced Python">
+           <span class="level-tag">Beginner</span>
+         </div>
+         <div class="course-body">
+           <h3>Core &amp; Advanced Python</h3>
+           <p class="desc">Python from basics to OOP, file handling, APIs and automation scripts.</p>
+           <div class="course-meta">
+             <span>3 Months</span>
+             <span>36 lectures</span>
+           </div>
+           <div class="rating">★ 4.8 <small>(2,150 ratings)</small></div>
+           <div class="price-row">
+             <div class="prices">
+               <span class="now">₹7,499</span>
+               <span class="was">₹9,999</span>
+             </div>
+             <a href="core-advanced-python.html" class="btn btn-amber btn-sm">View course</a>
+           </div>
+         </div>
+       </article>
+
+       <article class="course-card">
+         <div class="course-thumb">
+           <img src="images/core-advanced-java.jpg" alt="Core &amp; Advanced Java">
+           <span class="level-tag">Beginner</span>
+         </div>
+         <div class="course-body">
+           <h3>Core &amp; Advanced Java</h3>
+           <p class="desc">Core Java, collections, multithreading and web basics with JDBC and Servlets.</p>
+           <div class="course-meta">
+             <span>3 Months</span>
+             <span>36 lectures</span>
+           </div>
+           <div class="rating">★ 4.6 <small>(1,180 ratings)</small></div>
+           <div class="price-row">
+             <div class="prices">
+               <span class="now">₹7,499</span>
+               <span class="was">₹9,999</span>
+             </div>
+             <a href="core-advanced-java.html" class="btn btn-amber btn-sm">View course</a>
+           </div>
+         </div>
+       </article>
+
+       <article class="course-card">
+         <div class="course-thumb">
+           <img src="images/fullstack-dev-img.jpg" alt="Full Stack Web Development">
+           <span class="level-tag">Beginner</span>
+         </div>
+         <div class="course-body">
+           <h3>Full Stack Web Development</h3>
+           <p class="desc">HTML to deployed app — one project at a time.</p>
+           <div class="course-meta">
+             <span>6 Months</span>
+             <span>72 lectures</span>
+           </div>
+           <div class="rating">★ 4.7 <small>(4,120 ratings)</small></div>
+           <div class="price-row">
+             <div class="prices">
+               <span class="now">₹17,999</span>
+               <span class="was">₹21,999</span>
+             </div>
+             <a href="full-stack-web-development.html" class="btn btn-amber btn-sm">View course</a>
+           </div>
+         </div>
+       </article>
+
+       <article class="course-card">
+         <div class="course-thumb">
+           <img src="images/data-analyst-bootcamp.jpg" alt="Data Analyst Bootcamp">
+           <span class="level-tag">Beginner</span>
+         </div>
+         <div class="course-body">
+           <h3>Data Analyst Bootcamp</h3>
+           <p class="desc">Excel, SQL, Python and Power BI in one job-focused program with projects.</p>
+           <div class="course-meta">
+             <span>6 Months</span>
+             <span>72 lectures</span>
+           </div>
+           <div class="rating">★ 4.8 <small>(2,340 ratings)</small></div>
+           <div class="price-row">
+             <div class="prices">
+               <span class="now">₹17,999</span>
+               <span class="was">₹21,999</span>
+             </div>
+             <a href="data-analyst-bootcamp.html" class="btn btn-amber btn-sm">View course</a>
+           </div>
+         </div>
+       </article>
+
+       <article class="course-card">
+         <div class="course-thumb">
+           <img src="images/data-science-machine-learning.jpg" alt="Data Science &amp; Machine Learning">
+           <span class="level-tag">Intermediate</span>
+         </div>
+         <div class="course-body">
+           <h3>Data Science &amp; Machine Learning</h3>
+           <p class="desc">Python, statistics, machine learning and deep learning with real projects.</p>
+           <div class="course-meta">
+             <span>9 Months</span>
+             <span>108 lectures</span>
+           </div>
+           <div class="rating">★ 4.7 <small>(1,560 ratings)</small></div>
+           <div class="price-row">
+             <div class="prices">
+               <span class="now">₹26,999</span>
+               <span class="was">₹31,999</span>
+             </div>
+             <a href="data-science-machine-learning.html" class="btn btn-amber btn-sm">View course</a>
+           </div>
+         </div>
+       </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY LEARN FROM US (About) -->
+  <section id="about-us">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Why learn with CIDA</p>
+        <h2>Built for people who need a job, not a certificate wall</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item"><div class="why-mark">1</div><h3>Practical training</h3><p>Every module ends with a task you'd actually be asked to do at work.</p></div>
+        <div class="why-item"><div class="why-mark">2</div><h3>Industry projects</h3><p>Portfolio-ready projects using real, messy datasets.</p></div>
+        <div class="why-item"><div class="why-mark">3</div><h3>Experienced trainers</h3><p>Instructors who currently work in the field they teach.</p></div>
+        <div class="why-item"><div class="why-mark">4</div><h3>Doubt support</h3><p>Ask a question, get an answer from a trainer within a day.</p></div>
+        <div class="why-item"><div class="why-mark">5</div><h3>Assignments &amp; grading</h3><p>Feedback on your actual work, not just a completion tick.</p></div>
+        <div class="why-item"><div class="why-mark">6</div><h3>Interview preparation</h3><p>Mock interviews and question banks specific to your track.</p></div>
+        <div class="why-item"><div class="why-mark">7</div><h3>Extended access</h3><p>Revisit course material long after you finish a course.</p></div>
+        <div class="why-item"><div class="why-mark">8</div><h3>Career guidance</h3><p>1:1 guidance calls to help you pick your next course.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNING PATH -->
+  <section class="section-alt" id="path">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Career programs</p>
+        <h2>Follow a path instead of guessing your next course</h2>
+        <p>Each path strings individual courses into one job-ready sequence, ending in a portfolio project.</p>
+      </div>
+
+      <h3 style="font-size:1.1rem; margin-bottom:6px;">Data Analyst career path</h3>
+      <p style="color:var(--ink-soft); font-size:0.9rem; margin-bottom:10px;">7 stages · 5 projects · interview prep included</p>
+      <div class="path-rail">
+        <div class="path-step"><span class="path-idx">01</span><h4>Excel</h4><p>Spreadsheets, formulas, pivot tables</p></div>
+        <div class="path-arrow">→</div>
+        <div class="path-step"><span class="path-idx">02</span><h4>SQL</h4><p>Querying and joining real databases</p></div>
+        <div class="path-arrow">→</div>
+        <div class="path-step"><span class="path-idx">03</span><h4>Python</h4><p>Scripting and automation basics</p></div>
+        <div class="path-arrow">→</div>
+        <div class="path-step"><span class="path-idx">04</span><h4>Pandas &amp; NumPy</h4><p>Cleaning and shaping data</p></div>
+        <div class="path-arrow">→</div>
+        <div class="path-step"><span class="path-idx">05</span><h4>Power BI</h4><p>Dashboards and reporting</p></div>
+        <div class="path-arrow">→</div>
+        <div class="path-step"><span class="path-idx">06</span><h4>Projects</h4><p>Two full analysis projects</p></div>
+        <div class="path-arrow">→</div>
+        <div class="path-step"><span class="path-idx">07</span><h4>Interview prep</h4><p>Mock interviews, question bank</p></div>
+      </div>
+      <div class="path-outcome">Finish this path with a portfolio of 5 projects and a mock-interview recording you can share with recruiters. ₹18,999 · self-paced, extended access.</div>
+    </div>
+  </section>
+
+  <!-- LIVE + RECORDED -->
+  <section class="section-dark" id="formats">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker" style="color:var(--amber);">How you learn</p>
+        <h2>Live, recorded, or both — you choose the pace</h2>
+      </div>
+      <div class="format-grid">
+        <div class="format-card is-highlight" tabindex="0">
+          <h3>Live</h3>
+          <ul><li>Instructor-led sessions</li><li>Ask questions in real time</li><li>Fixed weekly schedule</li></ul>
+        </div>
+        <div class="format-card" tabindex="0">
+          <h3>Recorded</h3>
+          <ul><li>Learn anytime</li><li>Extended access</li><li>Pause and repeat lectures</li></ul>
+        </div>
+        <div class="format-card" tabindex="0">
+          <h3>Hybrid</h3>
+          <ul><li>Live sessions + recordings</li><li>Best of both formats</li><li>Catch up if you miss a class</li></ul>
+        </div>
+        <div class="format-card" tabindex="0">
+          <h3>Bootcamp</h3>
+          <ul><li>Intensive, structured program</li><li>Daily assignments</li><li>Cohort-based accountability</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROJECTS -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">See the work, not just the topics</p>
+      <h2>Projects students actually ship</h2>
+    </div>
+
+    <div class="project-strip">
+
+      <div class="project-card">
+        <img src="images/Sales-Analysis-Dashboard.jpg" alt="Sale Analysis Dashboard">
+        <h3>Sales Analysis Dashboard</h3>
+        <p>Power BI · retail dataset</p>
+      </div>
+
+      <div class="project-card">
+        <img src="images/Customer-Churn-Analysis.jpg" alt="Customer Churn Analysis">
+        <h3>Customer Churn Analysis</h3>
+        <p>Python · telecom dataset</p>
+      </div>
+
+      <div class="project-card">
+        <img src="images/Hospital-Data-Analysis.jpg" alt="Hospital Data Analysis">
+        <h3>Hospital Data Analysis</h3>
+        <p>SQL + Excel · healthcare dataset</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- FREE RESOURCES -->
+  <section class="section-alt" id="resources">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">No sign-up needed</p>
+        <h2>Free resources to get started today</h2>
+      </div>
+      <div class="res-grid">
+        <div class="res-card"><div class="glyph">Aa</div><h4>Notes &amp; PDFs</h4><p>Concept summaries, ready to print</p></div>
+        <div class="res-card"><div class="glyph">DS</div><h4>Practice datasets</h4><p>Real, downloadable sample data</p></div>
+        <div class="res-card"><div class="glyph">?</div><h4>MCQs</h4><p>Topic-wise quick quizzes</p></div>
+        <div class="res-card"><div class="glyph">&lt;/&gt;</div><h4>Coding exercises</h4><p>Bite-sized practice problems</p></div>
+        <div class="res-card"><div class="glyph">▶</div><h4>Tutorial videos</h4><p>Free lessons on our channel</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Student outcomes</p>
+        <h2>What students say after finishing a path</h2>
+      </div>
+      <div class="test-slider">
+      <div class="test-track" tabindex="0" aria-label="Student reviews">
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">I had zero background in data. The Data Analyst path took me from Excel basics to a Power BI dashboard I actually used in my job interview.</p>
+          <div class="who"><div class="avatar">R</div><div><h5>Riya Sharma</h5><span>Data Analyst path</span></div></div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">The live doubt sessions made the difference. I could ask about my own broken code instead of following a generic script.</p>
+          <div class="who"><div class="avatar">A</div><div><h5>Arjun Mehta</h5><span>Python Programming</span></div></div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★☆</div>
+          <p class="quote">The projects section is what got me hired — I had something concrete to show, not just a certificate.</p>
+          <div class="who"><div class="avatar">S</div><div><h5>Sneha Patil</h5><span>Full Stack Development</span></div></div>
+        </div>
+
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">SQL used to scare me. The interview-style practice sets made joins and window functions feel routine, and I cleared my technical round on the first attempt.</p>
+          <div class="who"><div class="avatar">K</div><div><h5>Karthik Nair</h5><span>SQL for Data Analysis</span></div></div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">I moved from a support role into reporting. The Power BI projects gave me real dashboards to walk my new manager through during the interview.</p>
+          <div class="who"><div class="avatar">P</div><div><h5>Priya Deshmukh</h5><span>Power BI for Business Reporting</span></div></div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★☆</div>
+          <p class="quote">Shipping a working ML model instead of just reading theory was the best part. Trainer feedback on my project code was detailed and honest.</p>
+          <div class="who"><div class="avatar">M</div><div><h5>Mohit Chauhan</h5><span>Applied Machine Learning</span></div></div>
+        </div>
+      </div>
+      <div class="test-controls">
+        <div class="test-dots" aria-label="Review pages"></div>
+        <div class="test-arrows">
+          <button type="button" class="test-prev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6l6 6"/></svg></button>
+          <button type="button" class="test-next" aria-label="Next reviews"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6l-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTORS -->
+  <!-- <section class="section-alt" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Learn from people who do this for a living</p>
+        <h2>Meet a few of our trainers</h2>
+      </div>
+      <div class="instr-grid">
+        <div class="instr-card"><div class="instr-photo"></div><h4>Vikram Rao</h4><p class="role">Senior Data Analyst, 9 yrs</p><p class="stat">12,400 students taught</p></div>
+        <div class="instr-card"><div class="instr-photo"></div><h4>Neha Kulkarni</h4><p class="role">BI Consultant, 7 yrs</p><p class="stat">8,100 students taught</p></div>
+        <div class="instr-card"><div class="instr-photo"></div><h4>Karan Verma</h4><p class="role">Full Stack Engineer, 6 yrs</p><p class="stat">15,200 students taught</p></div>
+        <div class="instr-card"><div class="instr-photo"></div><h4>Ayesha Khan</h4><p class="role">ML Engineer, 5 yrs</p><p class="stat">6,700 students taught</p></div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- PRICING -->
+  <!-- <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Pricing</p>
+        <h2>Pay per course, or commit to a full path</h2>
+      </div>
+      <div class="price-grid">
+        <div class="price-card">
+          <h3>Single course</h3>
+          <div class="amount">₹999 <small>– ₹4,999</small></div>
+          <ul><li>One course, full access</li><li>Certificate on completion</li><li>Extended access</li></ul>
+          <a href="#" class="btn btn-outline">Browse courses</a>
+        </div>
+        <div class="price-card is-popular">
+          <span class="popular-tag">Most chosen</span>
+          <h3>Career program</h3>
+          <div class="amount">₹10,000 <small>– ₹50,000+</small></div>
+          <ul><li>Full learning path</li><li>5+ portfolio projects</li><li>Interview preparation</li><li>Career guidance calls</li></ul>
+          <a href="#" class="btn btn-amber">View career paths</a>
+        </div>
+        <div class="price-card">
+          <h3>Subscription</h3>
+          <div class="amount">Monthly <small>or yearly</small></div>
+          <ul><li>Unlimited course access</li><li>New courses included</li><li>Cancel anytime</li></ul>
+          <a href="#" class="btn btn-outline">See plans</a>
+        </div>
+        <div class="price-card">
+          <h3>Course bundle</h3>
+          <div class="amount">Save <small>up to 40%</small></div>
+          <ul><li>3–5 related courses</li><li>Combined certificate</li><li>One-time payment</li></ul>
+          <a href="#" class="btn btn-outline">View bundles</a>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- FAQ -->
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Questions</p>
+        <h2>Before you enroll</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Is the course beginner friendly?<span class="faq-plus"></span></summary>
+          <p>Yes — every course states its starting level, and most tracks begin from zero prior experience.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are classes live or recorded?<span class="faq-plus"></span></summary>
+          <p>Both. Choose recorded for self-paced learning, live for instructor-led sessions, or hybrid for either.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How long do I get access?<span class="faq-plus"></span></summary>
+          <p>Most courses include extended access from your enrollment date, shown on each course page.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is a certificate provided?<span class="faq-plus"></span></summary>
+          <p>Yes, on completion. Certificates can be verified publicly using a unique certificate ID.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are projects included?<span class="faq-plus"></span></summary>
+          <p>Every course and career path includes at least one graded, portfolio-ready project.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is placement assistance available?<span class="faq-plus"></span></summary>
+          <p>Career programs include interview preparation and 1:1 career guidance calls.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What is the refund policy?<span class="faq-plus"></span></summary>
+          <p>Full details are on our refund policy page, linked in the footer below.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="final-cta">
+        <div>
+          <h2>Not sure which course fits you?</h2>
+          <p>Talk to a course advisor and get a path recommended for your goals, in under 10 minutes.</p>
+        </div>
+        <a href="tel:+917703881260" class="btn btn-amber">Book a free call</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">CIDA</div>
+        <p>Practical, project-based courses in data, programming and web skills.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Courses</h5>
+        <a href="data-analyst-bootcamp.html">Data Analyst</a>
+        <a href="core-advanced-python.html">Python</a>
+        <a href="data-science-machine-learning.html">Data Science &amp; Machine Learning</a>
+        <a href="full-stack-web-development.html">Web Development</a>
+        <a href="core-advanced-java.html">Core &amp; Advanced Java</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+        <!-- <a href="about.html#team">Instructors</a>
+        <a href="#">Careers</a> -->
+      </div>
+      <!-- <div class="foot-col">
+        <h5>Student</h5>
+        <a href="#">Log in</a>
+        <a href="#">My courses</a>
+        <a href="#">Certificates</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms &amp; conditions</a>
+        <a href="#">Refund policy</a>
+        <a href="#">Disclaimer</a>
+      </div> -->
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 CIDA. All rights reserved.</span>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/cidainstitute?stkn=MW1ub2xsNDgwdmdnaA%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M16.5 7.5v.01"/></svg>
+        </a>
+        <a href="https://www.facebook.com/share/1CPRv4FXjz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></svg>
+        </a>
+        <a  target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 1 0 -4 0"/><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"/></svg>
+        </a>
+        <a href="https://wa.me/918810279911" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"/><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var slider = document.querySelector('.test-slider');
+  if(!slider) return;
+  var track = slider.querySelector('.test-track');
+  var cards = track.querySelectorAll('.test-card');
+  var dotsBox = slider.querySelector('.test-dots');
+  var prev = slider.querySelector('.test-prev');
+  var next = slider.querySelector('.test-next');
+  var gap = 24, pages = 1, dots = [], timer = null, paused = false;
+  var DELAY = 3500;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function perView(){
+    var w = window.innerWidth;
+    return w <= 620 ? 1 : (w <= 980 ? 2 : 3);
+  }
+  function pageWidth(){ return track.clientWidth + gap; }
+  function stepWidth(){ return cards[0].offsetWidth + gap; }
+  function maxScroll(){ return track.scrollWidth - track.clientWidth; }
+
+  /* every review card gets the height of the tallest one */
+  function equalize(){
+    for(var i = 0; i < cards.length; i++) cards[i].style.minHeight = '';
+    var tallest = 0;
+    for(var j = 0; j < cards.length; j++) tallest = Math.max(tallest, cards[j].offsetHeight);
+    for(var k = 0; k < cards.length; k++) cards[k].style.minHeight = tallest + 'px';
+  }
+
+  function build(){
+    equalize();
+    pages = Math.ceil(cards.length / perView());
+    dotsBox.innerHTML = '';
+    dots = [];
+    for(var i = 0; i < pages; i++){
+      (function(i){
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Go to review page ' + (i + 1));
+        b.addEventListener('click', function(){ track.scrollTo({ left: i * pageWidth(), behavior: 'smooth' }); restart(); });
+        dotsBox.appendChild(b);
+        dots.push(b);
+      })(i);
+    }
+    update();
+  }
+  function current(){
+    if(track.scrollLeft >= maxScroll() - 4) return pages - 1;
+    return Math.min(pages - 1, Math.round(track.scrollLeft / pageWidth()));
+  }
+  function update(){
+    var c = current();
+    dots.forEach(function(d, i){ d.classList.toggle('is-active', i === c); });
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft >= maxScroll() - 4;
+  }
+
+  /* automatic sliding: one card at a time, back to the start after the last one */
+  function tick(){
+    if(paused) return;
+    if(track.scrollLeft >= maxScroll() - 4) track.scrollTo({ left: 0, behavior: 'smooth' });
+    else track.scrollBy({ left: stepWidth(), behavior: 'smooth' });
+  }
+  function start(){ if(reduceMotion || timer) return; timer = setInterval(tick, DELAY); }
+  function stop(){ clearInterval(timer); timer = null; }
+  function restart(){ stop(); start(); }
+
+  prev.addEventListener('click', function(){ track.scrollBy({ left: -pageWidth(), behavior: 'smooth' }); restart(); });
+  next.addEventListener('click', function(){ track.scrollBy({ left:  pageWidth(), behavior: 'smooth' }); restart(); });
+  track.addEventListener('scroll', function(){ window.requestAnimationFrame(update); });
+  track.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight'){ next.click(); e.preventDefault(); }
+    if(e.key === 'ArrowLeft'){ prev.click(); e.preventDefault(); }
+  });
+
+  /* pause while the visitor is reading or touching the reviews */
+  slider.addEventListener('mouseenter', function(){ paused = true; });
+  slider.addEventListener('mouseleave', function(){ paused = false; });
+  slider.addEventListener('focusin',    function(){ paused = true; });
+  slider.addEventListener('focusout',   function(){ paused = false; });
+  slider.addEventListener('touchstart', function(){ paused = true; }, { passive: true });
+  slider.addEventListener('touchend',   function(){ setTimeout(function(){ paused = false; }, 2500); }, { passive: true });
+  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+
+  window.addEventListener('resize', build);
+  window.addEventListener('load', build);
+  build();
+  start();
+})();
+</script>
+
+</body>
+</html>

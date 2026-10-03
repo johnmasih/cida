@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English Speaking — CIDA</title>
+<meta name="description" content="Build the confidence to speak English clearly and fluently. Classes are taught in Hindi, so you understand every rule, and you practise speaking in almost...">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/cida-favicon.png">
+
+<style>
+  :root{
+    --paper:#F1EEE3;
+    --paper-2:#E9E4D4;
+    --ink:#16211D;
+    --ink-soft:#3C453F;
+    --teal:#2B5F55;
+    --teal-deep:#132923;
+    --amber:#D98E2B;
+    --amber-deep:#B4711A;
+    --line: rgba(22,33,29,0.14);
+    --line-strong: rgba(22,33,29,0.28);
+    --white:#FBFAF6;
+    --radius: 3px;
+    --maxw: 1180px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ margin:0; padding:0; list-style:none; }
+  h1,h2,h3,h4{ font-family:'Fraunces', serif; font-weight:600; margin:0; color:var(--ink); }
+  p{ margin:0; }
+  button{ font-family:inherit; cursor:pointer; }
+  :focus-visible{ outline:2px solid var(--teal); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position:sticky; top:0; z-index:40;
+    background:rgba(241,238,227,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 0; gap:24px;
+  }
+  .brand {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 100px;
+  height: 40px;
+}
+
+.brand img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+  .brand .dot{ color:var(--amber); }
+  nav.primary{ display:flex; gap:32px; flex:1; justify-content:flex-end; }
+  nav.primary a{
+    font-size:0.95rem; color:var(--ink-soft); position:relative; padding:4px 0;
+  }
+  nav.primary a:hover{ color:var(--ink); }
+  nav.primary a.is-current{ color:var(--ink); font-weight:600; }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:11px 22px; border-radius:var(--radius); font-size:0.95rem; font-weight:600;
+    border:1px solid transparent; white-space:nowrap;
+  }
+  .btn-amber{ background:var(--amber); color:var(--teal-deep); }
+  .btn-amber:hover{ background:var(--amber-deep); }
+  .btn-outline{ border-color:var(--line-strong); color:var(--ink); }
+  .btn-outline:hover{ border-color:var(--ink); }
+  .btn-ghost{ color:var(--ink-soft); font-weight:500; }
+  .btn-ghost:hover{ color:var(--ink); }
+  .btn-sm{ padding:8px 16px; font-size:0.86rem; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0/100% 64px,
+      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/64px 100%,
+      var(--paper);
+    background-attachment:local;
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+    padding-top:76px; padding-bottom:76px;
+  }
+  .kicker{ font-size:0.98rem; color:var(--teal); font-weight:600; margin-bottom:18px; }
+  .hero h1{
+    font-size:clamp(2.3rem, 4vw, 3.4rem); line-height:1.06; letter-spacing:-0.01em;
+    max-width:14ch;
+  }
+  .hero h1 em{ font-style:italic; color:var(--teal); }
+  .hero .sub{ margin-top:22px; font-size:1.12rem; color:var(--ink-soft); max-width:46ch; }
+  .hero .cta-row{ margin-top:32px; display:flex; gap:14px; flex-wrap:wrap; }
+  .hero .stats{ margin-top:44px; display:flex; gap:36px; flex-wrap:wrap; }
+  .hero .stats div strong{ display:block; font-family:'Fraunces', serif; font-size:1.7rem; color:var(--ink); }
+  .hero .stats div span{ font-size:0.86rem; color:var(--ink-soft); }
+
+  .dash-card{
+    background:var(--teal-deep); border-radius:6px; padding:26px;
+    color:var(--white); box-shadow:0 24px 50px -18px rgba(19,41,35,0.55);
+    transform:rotate(1.2deg);
+  }
+  .dash-card .dash-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+  .dash-card .dash-top span{ font-size:0.8rem; color:#B8CFC7; }
+  .dash-card .dots{ display:flex; gap:6px; }
+  .dash-card .dots i{ width:8px; height:8px; border-radius:50%; background:#3F6A60; display:block; }
+  .dash-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px; }
+  .dash-stat{ background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); border-radius:4px; padding:14px; }
+  .dash-stat .v{ font-family:'Fraunces', serif; font-size:1.5rem; color:var(--amber); }
+  .dash-stat .l{ font-size:0.78rem; color:#B8CFC7; margin-top:2px; }
+  .dash-bars{ display:flex; align-items:flex-end; gap:8px; height:90px; background:rgba(255,255,255,0.05); border-radius:4px; padding:12px; }
+  .dash-bars i{ flex:1; background:linear-gradient(180deg, var(--amber), #8f5e17); border-radius:2px 2px 0 0; display:block; }
+
+  /* ---------- generic section scaffolding ---------- */
+  section{ padding:88px 0; }
+  .section-head{ max-width:640px; margin-bottom:48px; }
+  .section-head .kicker{ margin-bottom:12px; }
+  .section-head h2{ font-size:clamp(1.7rem, 2.6vw, 2.3rem); }
+  .section-head p{ margin-top:14px; color:var(--ink-soft); font-size:1.05rem; }
+  .section-alt{ background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .section-dark{ background:var(--teal-deep); color:var(--white); }
+  .section-dark .section-head h2{ color:var(--white); }
+  .section-dark .section-head p{ color:#C6D8D2; }
+
+  /* ---------- Course cards ---------- */
+  .course-toolbar{ display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:36px; flex-wrap:wrap; gap:16px; }
+  .course-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; }
+  .course-card{ background:var(--white); border:1px solid var(--line); border-radius:5px; overflow:hidden; display:flex; flex-direction:column; }
+  .course-thumb {
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+}
+
+.course-thumb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Optional dark overlay for better badge visibility */
+.course-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.05)
+  );
+  pointer-events: none;
+}
+
+.course-thumb .level-tag {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 12px;
+
+  background: rgba(251, 250, 246, 0.92);
+  color: var(--ink);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+  .course-body{ padding:20px 20px 22px; flex:1; display:flex; flex-direction:column; }
+  .course-body h3{ font-size:1.12rem; line-height:1.3; }
+  .course-body .desc{ font-size:0.9rem; color:var(--ink-soft); margin-top:8px; }
+  .course-meta{ display:flex; gap:14px; font-size:0.82rem; color:var(--ink-soft); margin-top:16px; flex-wrap:wrap; }
+  .course-meta span{ display:flex; align-items:center; gap:5px; }
+  .rating{ margin-top:12px; font-size:0.86rem; color:var(--amber-deep); font-weight:600; }
+  .rating small{ color:var(--ink-soft); font-weight:400; margin-left:4px; }
+  .price-row{ margin-top:18px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .price-row .prices{ display:flex; align-items:baseline; gap:8px; }
+  .price-row .now{ font-family:'Fraunces', serif; font-size:1.25rem; }
+  .price-row .was{ font-size:0.85rem; color:var(--ink-soft); text-decoration:line-through; }
+
+  /* ---------- Why us ---------- */
+  .why-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:0; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+  .why-item{ padding:30px 26px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .why-item h3{ font-size:1.02rem; margin-top:14px; }
+  .why-item p{ font-size:0.88rem; color:var(--ink-soft); margin-top:8px; }
+  .why-mark{ width:34px; height:34px; border:1.5px solid var(--teal); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--teal); font-family:'Fraunces', serif; font-size:0.95rem; }
+
+  /* ---------- Learning path ---------- */
+  .path-rail{ display:flex; align-items:stretch; gap:0; overflow-x:auto; padding-bottom:8px; }
+  .path-step{ flex:0 0 190px; padding:20px 18px; position:relative; }
+  .path-step h4{ font-size:0.98rem; margin-top:10px; }
+  .path-step p{ font-size:0.82rem; color:var(--ink-soft); margin-top:6px; }
+  .path-idx{ font-family:'Fraunces', serif; font-size:1.1rem; color:var(--amber); }
+  .path-arrow{ flex:0 0 40px; display:flex; align-items:center; justify-content:center; color:var(--line-strong); font-size:1.3rem; }
+  .path-outcome{ margin-top:28px; padding:20px 24px; background:var(--paper-2); border-left:3px solid var(--amber); border-radius:2px; font-size:0.94rem; color:var(--ink-soft); }
+
+  /* ---------- Live/Recorded ---------- */
+  .format-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .format-card{ border:1px solid rgba(255,255,255,0.14); border-radius:5px; padding:24px 20px; background:rgba(255,255,255,0.03); }
+  .format-card.is-highlight{ border-color:var(--amber); background:rgba(217,142,43,0.08); }
+  .format-card h3{ color:var(--white); font-size:1.08rem; }
+  .format-card ul{ margin-top:14px; }
+  .format-card li{ font-size:0.86rem; color:#C6D8D2; padding:5px 0 5px 16px; position:relative; }
+  .format-card li::before{ content:''; position:absolute; left:0; top:12px; width:6px; height:1.5px; background:var(--amber); }
+
+  /* ---------- Projects ---------- */
+  .project-strip {display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;}
+  .project-card { position: relative; border-radius: 5px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--teal); display: flex;flex-direction: column; justify-content: flex-end; padding: 22px; }
+
+/* Image holder */
+.project-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Keep text above the image */
+.project-card h3,
+.project-card p {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+}
+
+.project-card h3 {
+  font-size: 1.15rem;
+}
+
+.project-card p {
+  font-size: 0.84rem;
+  color: #DCE7E2;
+  margin-top: 6px;
+}
+
+  /* ---------- Free resources ---------- */
+  .res-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+  .res-card{ text-align:left; padding:22px 16px; background:var(--white); border:1px solid var(--line); border-radius:5px; }
+  .res-card .glyph{ font-family:'Fraunces', serif; font-size:1.5rem; color:var(--teal); }
+  .res-card h4{ font-size:0.95rem; margin-top:12px; }
+  .res-card p{ font-size:0.8rem; color:var(--ink-soft); margin-top:5px; }
+
+  /* ---------- Testimonials ---------- */
+  .test-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .test-card{ background:var(--white); border:1px solid var(--line); border-radius:5px; padding:26px; display:flex; flex-direction:column; height:100%; }
+  .test-card .quote{ font-size:0.98rem; color:var(--ink); flex:1; }
+  .test-card .who{ display:flex; align-items:center; gap:12px; margin-top:20px; }
+  .avatar{ width:42px; height:42px; border-radius:50%; background:var(--teal); color:var(--white); display:flex; align-items:center; justify-content:center; font-family:'Fraunces', serif; font-size:1rem; }
+  .who h5{ font-size:0.92rem; margin:0; }
+  .who span{ font-size:0.8rem; color:var(--ink-soft); }
+  .stars{ color:var(--amber-deep); font-size:0.85rem; margin-bottom:10px; }
+
+  /* ---------- Pricing ---------- */
+  .price-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; align-items:stretch; }
+  .price-card{ background:var(--white); border:1px solid var(--line); border-radius:6px; padding:28px 24px; display:flex; flex-direction:column; }
+  .price-card.is-popular{ border-color:var(--teal); box-shadow:0 18px 34px -20px rgba(43,95,85,0.5); position:relative; }
+  .popular-tag{ position:absolute; top:-13px; left:24px; background:var(--teal); color:var(--white); font-size:0.72rem; font-weight:600; padding:4px 12px; border-radius:20px; }
+  .price-card h3{ font-size:1.05rem; }
+  .price-card .amount{ font-family:'Fraunces', serif; font-size:2rem; margin-top:14px; }
+  .price-card .amount small{ font-family:'IBM Plex Sans', sans-serif; font-size:0.85rem; color:var(--ink-soft); font-weight:400; }
+  .price-card ul{ margin-top:20px; flex:1; }
+  .price-card li{ font-size:0.86rem; color:var(--ink-soft); padding:6px 0 6px 18px; position:relative; }
+  .price-card li::before{ content:''; position:absolute; left:0; top:13px; width:7px; height:1.5px; background:var(--teal); }
+  .price-card .btn{ margin-top:22px; width:100%; }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{ max-width:760px; }
+  .faq-item{ border-bottom:1px solid var(--line); }
+  .faq-item summary{ list-style:none; padding:22px 4px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:1.02rem; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-plus{ width:20px; height:20px; position:relative; flex:0 0 auto; }
+  .faq-plus::before, .faq-plus::after{ content:''; position:absolute; background:var(--ink); top:50%; left:50%; transform:translate(-50%,-50%); }
+  .faq-plus::before{ width:14px; height:1.5px; }
+  .faq-plus::after{ width:1.5px; height:14px; transition:transform .15s ease; }
+  .faq-item[open] .faq-plus::after{ transform:translate(-50%,-50%) rotate(90deg) scaleY(0); }
+  .faq-item p{ padding:0 4px 22px; color:var(--ink-soft); max-width:60ch; }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{ background:var(--teal-deep); border-radius:8px; padding:56px; display:flex; justify-content:space-between; align-items:center; gap:30px; flex-wrap:wrap; }
+  .final-cta h2{ color:var(--white); font-size:clamp(1.6rem,3vw,2.1rem); max-width:16ch; }
+  .final-cta p{ color:#C6D8D2; margin-top:12px; max-width:40ch; }
+
+  /* ---------- Footer ---------- */
+  footer{ background:var(--ink); color:#CBD3CF; padding:64px 0 28px; }
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.1);}  .foot-brand{ font-family:'Fraunces', serif; font-size:1.3rem; color:var(--white); font-weight:700; }
+  .foot-brand{ font-family:'Fraunces', serif; font-size:1.3rem; color:var(--white); font-weight:700; }
+  .foot-brand + p{ margin-top:14px; font-size:0.88rem; color:#9DA89F; max-width:32ch; }
+  .foot-col h5{ font-size:0.86rem; color:var(--white); font-weight:600; margin-bottom:14px; }
+  .foot-col a{ display:block; font-size:0.88rem; color:#9DA89F; padding:5px 0; }
+  .foot-col a:hover{ color:var(--white); }
+  .foot-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:24px; font-size:0.8rem; color:#8B978D; flex-wrap:wrap; gap:12px; }
+  .foot-social{ display:flex; gap:14px; }
+  .foot-social a{ width:36px; height:36px; border:1px solid rgba(255,255,255,0.16); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#CBD3CF; transition:background .15s ease, color .15s ease, border-color .15s ease; }
+  .foot-social a svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .foot-social a:hover{ background:var(--amber); border-color:var(--amber); color:var(--teal-deep); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px){
+    .hero .wrap{ grid-template-columns:1fr; padding-top:44px; }
+    .dash-card{ transform:none; max-width:420px; }
+    .course-grid{ grid-template-columns:repeat(2,1fr); }
+    .why-grid{ grid-template-columns:repeat(2,1fr); }
+    .format-grid{ grid-template-columns:repeat(2,1fr); }
+    .project-strip{ grid-template-columns:1fr 1fr; }
+    .res-grid{ grid-template-columns:repeat(3,1fr); }
+    .test-grid{ grid-template-columns:1fr 1fr; }
+    .price-grid{ grid-template-columns:repeat(2,1fr); }
+    .foot-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width: 620px){
+    .course-grid, .why-grid, .format-grid, .project-strip, .res-grid, .test-grid, .price-grid{ grid-template-columns:1fr; }
+    .foot-grid{ grid-template-columns:1fr; }
+    section{ padding:60px 0; }
+    .final-cta{ padding:36px 24px; flex-direction:column; align-items:flex-start; }
+    .course-toolbar{ flex-direction:column; align-items:flex-start; }
+    nav.primary{ gap:18px; }
+    nav.primary a{ font-size:0.88rem; }
+    .wrap{ padding:0 18px; }
+  }
+
+  /* ---------- Course page ---------- */
+  .course-hero{
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0/100% 64px,
+      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/64px 100%,
+      var(--paper);
+    background-attachment:local;
+    padding:48px 0 80px;
+  }
+  .course-hero .layout{ display:grid; grid-template-columns:1fr 380px; gap:56px; align-items:start; }
+  .crumbs{ font-size:0.86rem; color:var(--ink-soft); margin-bottom:22px; }
+  .crumbs a:hover{ color:var(--ink); text-decoration:underline; }
+  .crumbs span{ margin:0 8px; color:var(--line-strong); }
+  .course-left h1{ font-size:clamp(2rem, 3.6vw, 3rem); line-height:1.1; letter-spacing:-0.01em; max-width:18ch; }
+  .course-left .lead{ margin-top:22px; font-size:1.08rem; color:var(--ink-soft); max-width:58ch; }
+  .facts{ margin-top:30px; display:grid; grid-template-columns:repeat(4, auto); justify-content:start; gap:0; border:1px solid var(--line-strong); border-radius:4px; background:var(--white); }
+  .facts div{ padding:14px 22px; border-right:1px solid var(--line); }
+  .facts div:last-child{ border-right:0; }
+  .facts dt{ font-size:0.78rem; color:var(--ink-soft); }
+  .facts dd{ margin:2px 0 0; font-weight:600; font-size:0.98rem; }
+  .learn-block{ margin-top:38px; }
+  .learn-block h2{ font-size:1.3rem; }
+  .learn-list{ margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:12px 28px; }
+  .learn-list li{ position:relative; padding-left:26px; font-size:0.95rem; color:var(--ink-soft); }
+  .learn-list li::before{ content:''; position:absolute; left:2px; top:6px; width:12px; height:6px; border-left:2px solid var(--teal); border-bottom:2px solid var(--teal); transform:rotate(-45deg); }
+
+  .course-right{ position:sticky; top:96px; display:flex; flex-direction:column; gap:18px; }
+  .course-right .course-card{ box-shadow:0 22px 40px -24px rgba(19,41,35,0.45); }
+  .course-right .course-thumb{ height:190px; }
+  .includes{ background:var(--white); border:1px solid var(--line); border-radius:5px; padding:20px 22px; }
+  .includes h3{ font-size:1rem; margin-bottom:10px; }
+  .includes li{ font-size:0.88rem; color:var(--ink-soft); padding:6px 0 6px 18px; position:relative; border-bottom:1px solid var(--line); }
+  .includes li:last-child{ border-bottom:0; }
+  .includes li::before{ content:''; position:absolute; left:0; top:15px; width:7px; height:1.5px; background:var(--teal); }
+
+  /* Syllabus */
+  .syl-intro{ max-width:640px; }
+  .stage{ display:grid; grid-template-columns:200px 1fr; gap:36px; padding:34px 0; border-top:1px solid var(--line-strong); }
+  .stage:first-of-type{ margin-top:36px; }
+  .stage-label h3{ font-size:1.25rem; }
+  .stage-label p{ font-size:0.86rem; color:var(--ink-soft); margin-top:6px; }
+  .stage-label .bar{ display:block; width:36px; height:4px; background:var(--amber); margin-bottom:14px; border-radius:2px; }
+  .stage.st-2 .bar{ width:72px; }
+  .stage.st-3 .bar{ width:108px; }
+  .module{ background:var(--paper); border:1px solid var(--line); border-radius:4px; margin-bottom:10px; }
+  .module summary{ list-style:none; cursor:pointer; padding:16px 20px; display:flex; justify-content:space-between; align-items:center; gap:16px; font-weight:600; }
+  .module summary::-webkit-details-marker{ display:none; }
+  .module summary small{ font-weight:400; color:var(--ink-soft); font-size:0.82rem; margin-left:auto; white-space:nowrap; }
+  .module[open]{ background:var(--white); border-color:var(--line-strong); }
+  .module ul{ padding:0 20px 18px 44px; display:grid; grid-template-columns:1fr 1fr; gap:6px 24px; }
+  .module li{ font-size:0.9rem; color:var(--ink-soft); list-style:disc; }
+  .mod-plus{ width:16px; height:16px; position:relative; flex:0 0 auto; }
+  .mod-plus::before, .mod-plus::after{ content:''; position:absolute; background:var(--ink); top:50%; left:50%; transform:translate(-50%,-50%); }
+  .mod-plus::before{ width:12px; height:1.5px; }
+  .mod-plus::after{ width:1.5px; height:12px; transition:transform .15s ease; }
+  .module[open] .mod-plus::after{ transform:translate(-50%,-50%) scaleY(0); }
+  .module summary span.t{ flex:0 1 auto; }
+
+  /* Details grids */
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+  .plain-list li{ padding:9px 0 9px 22px; position:relative; border-bottom:1px solid var(--line); font-size:0.96rem; color:var(--ink-soft); }
+  .plain-list li::before{ content:''; position:absolute; left:0; top:19px; width:8px; height:1.5px; background:var(--teal); }
+  .sub-h{ font-size:1.25rem; margin-bottom:10px; }
+  .proj-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .proj{ background:var(--white); border:1px solid var(--line); border-radius:5px; padding:24px; border-top:4px solid var(--amber); }
+  .proj h3{ font-size:1.08rem; }
+  .proj p{ margin-top:10px; font-size:0.9rem; color:var(--ink-soft); }
+  .cert-band{ display:grid; grid-template-columns:1.1fr 1fr; gap:48px; align-items:center; }
+  .cert-card{ background:var(--teal-deep); color:var(--white); border-radius:6px; padding:34px; box-shadow:0 24px 50px -22px rgba(19,41,35,0.55); border:1px solid rgba(255,255,255,0.1); }
+  .cert-card .small{ font-size:0.78rem; color:#B8CFC7; }
+  .cert-card h3{ color:var(--white); font-size:1.4rem; margin-top:10px; }
+  .cert-card .id{ margin-top:22px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.14); font-size:0.82rem; color:#B8CFC7; }
+  .instr-row{ display:grid; grid-template-columns:200px 1fr; gap:36px; align-items:center; }
+  .instr-row .instr-photo{ margin:0; }
+  .instr-row h3{ font-size:1.4rem; }
+  .instr-row .role{ color:var(--teal); font-size:0.95rem; margin-top:4px; }
+  .instr-row p.bio{ margin-top:14px; color:var(--ink-soft); max-width:60ch; }
+  .instr-row .stat{ margin-top:14px; font-size:0.86rem; color:var(--ink-soft); }
+  .rev-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .rating-sum{ display:flex; align-items:baseline; gap:12px; margin-bottom:26px; }
+  .rating-sum strong{ font-family:'Fraunces', serif; font-size:2.6rem; }
+  .rating-sum span{ color:var(--ink-soft); font-size:0.92rem; }
+
+  @media (max-width: 980px){
+    .course-hero .layout{ grid-template-columns:1fr; gap:36px; }
+    .course-right{ position:static; max-width:460px; }
+    .stage{ grid-template-columns:1fr; gap:18px; }
+    .two-col, .cert-band{ grid-template-columns:1fr; gap:32px; }
+    .proj-grid, .rev-grid{ grid-template-columns:1fr 1fr; }
+    .facts{ grid-template-columns:repeat(2, auto); }
+    .facts div:nth-child(2){ border-right:0; }
+    .facts div:nth-child(-n+2){ border-bottom:1px solid var(--line); }
+  }
+  @media (max-width: 620px){
+    .learn-list, .module ul, .proj-grid, .rev-grid{ grid-template-columns:1fr; }
+    .instr-row{ grid-template-columns:1fr; }
+    .instr-row .instr-photo{ max-width:160px; }
+    .module summary small{ display:none; }
+    .facts{ grid-template-columns:1fr 1fr; }
+  }
+
+  /* ---------- Reviews slider ---------- */
+  .test-slider{ position:relative; }
+  .test-track{ display:flex; gap:24px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; align-items:stretch; }
+  .test-track::-webkit-scrollbar{ display:none; }
+  .test-track .test-card{ flex:0 0 calc((100% - 48px) / 3); scroll-snap-align:start; }
+  .test-controls{ display:flex; align-items:center; justify-content:space-between; margin-top:28px; gap:16px; }
+  .test-dots{ display:flex; gap:8px; }
+  .test-dots button{ width:26px; height:4px; border:0; padding:0; border-radius:2px; background:var(--line-strong); transition:background .2s ease, width .2s ease; }
+  .test-dots button.is-active{ background:var(--teal); width:40px; }
+  .test-arrows{ display:flex; gap:10px; }
+  .test-arrows button{ width:42px; height:42px; border-radius:50%; border:1px solid var(--line-strong); background:transparent; color:var(--ink); display:flex; align-items:center; justify-content:center; transition:background .15s ease, color .15s ease, border-color .15s ease; }
+  .test-arrows button svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .test-arrows button:hover:not(:disabled){ background:var(--teal); border-color:var(--teal); color:var(--white); }
+  .test-arrows button:disabled{ opacity:0.35; cursor:default; }
+  @media (max-width: 980px){ .test-track .test-card{ flex-basis:calc((100% - 24px) / 2); } }
+  @media (max-width: 620px){ .test-track .test-card{ flex-basis:100%; } }
+
+  /* ---------- Syllabus: modules only ---------- */
+  .module-list{ margin-top:36px; max-width:880px; }
+  .course-thumb{ background:var(--teal); }
+  .test-track{ align-items:stretch; }
+  .test-track .test-card{ height:auto; align-self:stretch; }
+  .test-track .test-card .quote{ flex:1 1 auto; }
+
+  /* ---------- Ask a question about this course ---------- */
+  .query-band{ display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center; background:var(--white); border:1px solid var(--line); border-left:3px solid var(--amber); border-radius:6px; padding:34px 36px; }
+  .query-band h2{ font-size:clamp(1.4rem, 2.2vw, 1.8rem); }
+  .query-band p{ color:var(--ink-soft); margin-top:8px; max-width:58ch; }
+  .query-band .btn{ display:inline-flex; align-items:center; gap:10px; white-space:nowrap; }
+  .query-band .btn svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  @media (max-width: 720px){ .query-band{ grid-template-columns:1fr; padding:26px 22px; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <!-- Logo -->
+    <a class="brand" href="index.html"><img src="images/cida-logo.png" alt="CIDA"></a>
+
+    <nav class="primary">
+      <a href="index.html">Home</a>
+      <a href="courses.html" class="is-current">Course</a>
+      <a href="about.html">About us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- COURSE INTRO: details left, course card right -->
+  <section class="course-hero">
+    <div class="wrap layout">
+      <div class="course-left">
+        <p class="crumbs"><a href="index.html">Home</a><span>/</span><a href="courses.html">Courses</a><span>/</span>English Speaking</p>
+        <h1>English Speaking</h1>
+        <p class="lead">Build the confidence to speak English clearly and fluently. Classes are taught in Hindi, so you understand every rule, and you practise speaking in almost every session. You cover grammar for speaking, vocabulary, pronunciation, everyday conversations, workplace English and interview skills, with feedback from your trainer.</p>
+
+        <dl class="facts">
+          <div><dt>Level</dt><dd>Beginner</dd></div>
+          <div><dt>Duration</dt><dd>3 Months</dd></div>
+          <div><dt>Lectures</dt><dd>36 lectures</dd></div>
+          <div><dt>Language</dt><dd>Hindi</dd></div>
+        </dl>
+
+        <div class="learn-block">
+          <h2>What you will learn</h2>
+          <ul class="learn-list">
+<li>Speak simple, correct English in everyday conversations</li>
+<li>Use grammar naturally without stopping to think</li>
+<li>Build a working vocabulary of useful words and phrases</li>
+<li>Improve pronunciation, stress and intonation</li>
+<li>Handle phone calls, meetings and group discussions</li>
+<li>Answer common interview questions with confidence</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="course-right">
+        <article class="course-card">
+          <div class="course-thumb">
+            <img src="images/english-speaking.jpg" alt="English Speaking">
+            <span class="level-tag">Beginner</span>
+          </div>
+          <div class="course-body">
+            <h3>English Speaking</h3>
+            <p class="desc">Speak English with confidence in daily life, at work and in interviews.</p>
+            <div class="course-meta">
+              <span>3 Months</span>
+              <span>36 lectures</span>
+            </div>
+            <div class="rating">★ 4.8 <small>(3,020 ratings)</small></div>
+            <div class="price-row">
+              <div class="prices">
+                <span class="now">₹7,499</span>
+                <span class="was">₹9,999</span>
+              </div>
+              <a href="contact.html?course=English%20Speaking" class="btn btn-amber btn-sm">Enroll now</a>
+            </div>
+          </div>
+        </article>
+        <div class="includes">
+          <h3>This course includes</h3>
+          <ul>
+<li>3 Months of structured training</li>
+<li>36 lectures with practice tasks</li>
+<li>Graded assignments and topic quizzes</li>
+<li>Speaking practice with trainer feedback</li>
+<li>Certificate of completion</li>
+<li>Doubt support from trainers</li>
+<li>Extended access on mobile and desktop</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ASK A QUESTION -->
+  <section id="ask">
+    <div class="wrap">
+      <div class="query-band">
+        <div>
+          <h2>Have a question about this course?</h2>
+          <p>Ask us anything about English Speaking: syllabus, batch timings, fees or what to expect. Chat with a course advisor on WhatsApp and we will reply as soon as we can.</p>
+        </div>
+        <a href="https://wa.me/918810279911?text=Hi%20CIDA%2C%20I%20have%20a%20question%20about%20the%20English%20Speaking%20course.%20Could%20you%20please%20share%20more%20details%3F" class="btn btn-amber" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"/><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></svg><span>Ask on WhatsApp</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYLLABUS -->
+  <section class="section-alt" id="syllabus">
+    <div class="wrap">
+      <div class="section-head syl-intro" style="margin-bottom:0;">
+        <p class="kicker">Course curriculum</p>
+        <h2>English Speaking syllabus</h2>
+        <p>7 modules, each ending with a hands-on task. Open any module to see the topics it covers.</p>
+      </div>
+      <div class="module-list">
+<details class="module"><summary><span class="t">Module 1: Foundations of spoken English</span><small>4 topics</small><span class="mod-plus"></span></summary><ul><li>Sounds and alphabet</li><li>Parts of speech</li><li>Building simple sentences</li><li>Common daily phrases</li></ul></details>
+<details class="module"><summary><span class="t">Module 2: Grammar for speaking</span><small>4 topics</small><span class="mod-plus"></span></summary><ul><li>Tenses in conversation</li><li>Articles and prepositions</li><li>Framing questions</li><li>Fixing common mistakes</li></ul></details>
+<details class="module"><summary><span class="t">Module 3: Vocabulary building</span><small>4 topics</small><span class="mod-plus"></span></summary><ul><li>Word families</li><li>Phrasal verbs and idioms</li><li>Synonyms and antonyms</li><li>Using new words in speech</li></ul></details>
+<details class="module"><summary><span class="t">Module 4: Pronunciation and accent</span><small>4 topics</small><span class="mod-plus"></span></summary><ul><li>Word stress</li><li>Intonation</li><li>Connected speech</li><li>Listening practice</li></ul></details>
+<details class="module"><summary><span class="t">Module 5: Everyday conversation</span><small>4 topics</small><span class="mod-plus"></span></summary><ul><li>Introducing yourself</li><li>Shopping, travel and dining</li><li>Phone conversations</li><li>Small talk</li></ul></details>
+<details class="module"><summary><span class="t">Module 6: English for the workplace</span><small>4 topics</small><span class="mod-plus"></span></summary><ul><li>Meetings and discussions</li><li>Phone and video call etiquette</li><li>Giving and receiving feedback</li><li>Group discussion practice</li></ul></details>
+<details class="module"><summary><span class="t">Module 7: Interviews and public speaking</span><small>4 topics</small><span class="mod-plus"></span></summary><ul><li>Self-introduction</li><li>Common interview questions</li><li>Body language</li><li>Short presentations</li></ul></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREREQUISITES + TOOLS -->
+  <section>
+    <div class="wrap two-col">
+      <div>
+        <h2 class="sub-h">Prerequisites</h2>
+        <ul class="plain-list">
+<li>A smartphone or laptop with internet access</li>
+<li>No prior English knowledge needed beyond the basics</li>
+<li>Willingness to speak in every class, even with mistakes</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="sub-h">Tools and software</h2>
+        <ul class="plain-list">
+<li>Zoom or Google Meet for live practice</li>
+<li>Headphones with a microphone</li>
+<li>A notebook for daily vocabulary</li>
+<li>Voice recording on your phone</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Hands-on practice</p>
+        <h2>Projects you will build</h2>
+        <p>Every project is reviewed by a trainer and ready to add to your portfolio.</p>
+      </div>
+      <div class="proj-grid"><div class="proj"><h3>Self-Introduction Video</h3><p>Record a clear one-minute introduction and improve it with trainer feedback.</p></div><div class="proj"><h3>Mock Interview Round</h3><p>Practise a full interview with common questions and feedback.</p></div><div class="proj"><h3>Group Discussion Practice</h3><p>Take part in a moderated discussion and learn to express opinions clearly.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATE -->
+  <section>
+    <div class="wrap cert-band">
+      <div>
+        <h2 class="sub-h">Certificate of completion</h2>
+        <p style="color:var(--ink-soft); max-width:52ch;">Finish the modules, assignments and final project to earn a CIDA certificate. Each certificate has a unique ID that employers can verify online, and you can download it or share it on LinkedIn.</p>
+      </div>
+      <div class="cert-card">
+        <p class="small">CIDA certificate of completion</p>
+        <h3>English Speaking</h3>
+        <p class="id">Verification ID: CIDA-ENG-2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section>
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:24px;">
+        <p class="kicker">Student reviews</p>
+        <h2>What students say about this course</h2>
+      </div>
+      <div class="rating-sum"><strong>4.8</strong><span>average rating from 3,020 ratings</span></div>
+      <div class="test-slider">
+        <div class="test-track" tabindex="0" aria-label="Student reviews"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">I used to hesitate even to introduce myself. Now I speak in meetings without fear.</p><div class="who"><div class="avatar">R</div><div><h5>Rekha Singh</h5><span>English Speaking</span></div></div></div><div class="test-card"><div class="stars">★★★★★</div><p class="quote">Learning grammar in Hindi made everything so much easier. Best decision I made this year.</p><div class="who"><div class="avatar">M</div><div><h5>Manoj Kumar</h5><span>English Speaking</span></div></div></div><div class="test-card"><div class="stars">★★★★☆</div><p class="quote">Very supportive trainers. I would love a few more group discussion sessions.</p><div class="who"><div class="avatar">S</div><div><h5>Sunita Yadav</h5><span>English Speaking</span></div></div></div><div class="test-card"><div class="stars">★★★★★</div><p class="quote">The mock interviews gave me real confidence. I cleared my first HR round.</p><div class="who"><div class="avatar">A</div><div><h5>Arvind Patel</h5><span>English Speaking</span></div></div></div><div class="test-card"><div class="stars">★★★★★</div><p class="quote">Pronunciation practice was excellent. People notice the change in how I speak.</p><div class="who"><div class="avatar">N</div><div><h5>Nisha Gupta</h5><span>English Speaking</span></div></div></div><div class="test-card"><div class="stars">★★★★☆</div><p class="quote">Good pace and daily practice. My vocabulary has grown a lot in three months.</p><div class="who"><div class="avatar">R</div><div><h5>Rahul Dwivedi</h5><span>English Speaking</span></div></div></div></div>
+        <div class="test-controls">
+          <div class="test-dots" aria-label="Review pages"></div>
+          <div class="test-arrows">
+            <button type="button" class="test-prev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6l6 6"/></svg></button>
+            <button type="button" class="test-next" aria-label="Next reviews"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6l-6 6"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Questions</p>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="faq-list"><details class="faq-item" open><summary>In which language are classes taught?<span class="faq-plus"></span></summary><p>Classes are taught in Hindi, with English used more as you progress.</p></details><details class="faq-item"><summary>I am a complete beginner. Can I join?<span class="faq-plus"></span></summary><p>Yes. The course starts with simple sentences and daily phrases.</p></details><details class="faq-item"><summary>Will I get speaking practice?<span class="faq-plus"></span></summary><p>Yes. Almost every session includes speaking practice with trainer feedback.</p></details></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="wrap">
+      <div class="final-cta">
+        <div>
+          <h2>Ready to start English Speaking?</h2>
+          <p>Enroll today for ₹7,499 and get extended access, projects and doubt support.</p>
+        </div>
+        <a href="contact.html?course=English%20Speaking" class="btn btn-amber">Enroll now</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">CIDA</div>
+        <p>Practical, project-based courses in data, programming and web skills.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Courses</h5>
+        <a href="data-analyst-bootcamp.html">Data Analyst</a>
+        <a href="core-advanced-python.html">Python</a>
+        <a href="data-science-machine-learning.html">Data Science &amp; Machine Learning</a>
+        <a href="full-stack-web-development.html">Web Development</a>
+        <a href="core-advanced-java.html">Core &amp; Advanced Java</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+        <!-- <a href="about.html#team">Instructors</a>
+        <a href="#">Careers</a> -->
+      </div>
+      <!-- <div class="foot-col">
+        <h5>Student</h5>
+        <a href="#">Log in</a>
+        <a href="#">My courses</a>
+        <a href="#">Certificates</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms &amp; conditions</a>
+        <a href="#">Refund policy</a>
+        <a href="#">Disclaimer</a>
+      </div> -->
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 CIDA. All rights reserved.</span>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/cidainstitute?stkn=MW1ub2xsNDgwdmdnaA%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M16.5 7.5v.01"/></svg>
+        </a>
+        <a href="https://www.facebook.com/share/1CPRv4FXjz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></svg>
+        </a>
+        <a  target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 1 0 -4 0"/><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"/></svg>
+        </a>
+        <a href="https://wa.me/918810279911" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"/><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var slider = document.querySelector('.test-slider');
+  if(!slider) return;
+  var track = slider.querySelector('.test-track');
+  var cards = track.querySelectorAll('.test-card');
+  var dotsBox = slider.querySelector('.test-dots');
+  var prev = slider.querySelector('.test-prev');
+  var next = slider.querySelector('.test-next');
+  var gap = 24, pages = 1, dots = [], timer = null, paused = false;
+  var DELAY = 3500;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function perView(){
+    var w = window.innerWidth;
+    return w <= 620 ? 1 : (w <= 980 ? 2 : 3);
+  }
+  function pageWidth(){ return track.clientWidth + gap; }
+  function stepWidth(){ return cards[0].offsetWidth + gap; }
+  function maxScroll(){ return track.scrollWidth - track.clientWidth; }
+
+  /* every review card gets the height of the tallest one */
+  function equalize(){
+    for(var i = 0; i < cards.length; i++) cards[i].style.minHeight = '';
+    var tallest = 0;
+    for(var j = 0; j < cards.length; j++) tallest = Math.max(tallest, cards[j].offsetHeight);
+    for(var k = 0; k < cards.length; k++) cards[k].style.minHeight = tallest + 'px';
+  }
+
+  function build(){
+    equalize();
+    pages = Math.ceil(cards.length / perView());
+    dotsBox.innerHTML = '';
+    dots = [];
+    for(var i = 0; i < pages; i++){
+      (function(i){
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Go to review page ' + (i + 1));
+        b.addEventListener('click', function(){ track.scrollTo({ left: i * pageWidth(), behavior: 'smooth' }); restart(); });
+        dotsBox.appendChild(b);
+        dots.push(b);
+      })(i);
+    }
+    update();
+  }
+  function current(){
+    if(track.scrollLeft >= maxScroll() - 4) return pages - 1;
+    return Math.min(pages - 1, Math.round(track.scrollLeft / pageWidth()));
+  }
+  function update(){
+    var c = current();
+    dots.forEach(function(d, i){ d.classList.toggle('is-active', i === c); });
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft >= maxScroll() - 4;
+  }
+
+  /* automatic sliding: one card at a time, back to the start after the last one */
+  function tick(){
+    if(paused) return;
+    if(track.scrollLeft >= maxScroll() - 4) track.scrollTo({ left: 0, behavior: 'smooth' });
+    else track.scrollBy({ left: stepWidth(), behavior: 'smooth' });
+  }
+  function start(){ if(reduceMotion || timer) return; timer = setInterval(tick, DELAY); }
+  function stop(){ clearInterval(timer); timer = null; }
+  function restart(){ stop(); start(); }
+
+  prev.addEventListener('click', function(){ track.scrollBy({ left: -pageWidth(), behavior: 'smooth' }); restart(); });
+  next.addEventListener('click', function(){ track.scrollBy({ left:  pageWidth(), behavior: 'smooth' }); restart(); });
+  track.addEventListener('scroll', function(){ window.requestAnimationFrame(update); });
+  track.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight'){ next.click(); e.preventDefault(); }
+    if(e.key === 'ArrowLeft'){ prev.click(); e.preventDefault(); }
+  });
+
+  /* pause while the visitor is reading or touching the reviews */
+  slider.addEventListener('mouseenter', function(){ paused = true; });
+  slider.addEventListener('mouseleave', function(){ paused = false; });
+  slider.addEventListener('focusin',    function(){ paused = true; });
+  slider.addEventListener('focusout',   function(){ paused = false; });
+  slider.addEventListener('touchstart', function(){ paused = true; }, { passive: true });
+  slider.addEventListener('touchend',   function(){ setTimeout(function(){ paused = false; }, 2500); }, { passive: true });
+  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+
+  window.addEventListener('resize', build);
+  window.addEventListener('load', build);
+  build();
+  start();
+})();
+</script>
+
+</body>
+</html>
