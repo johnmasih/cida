@@ -178,6 +178,11 @@
   .course-toolbar{ display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:36px; flex-wrap:wrap; gap:16px; }
   .course-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; }
   .course-card{ background:var(--white); border:1px solid var(--line); border-radius:5px; overflow:hidden; display:flex; flex-direction:column; }
+  /* Whole card is clickable: the "View course" link stretches over the card */
+  .course-card{ position:relative; cursor:pointer; transition:box-shadow .2s ease, transform .2s ease; }
+  .course-card:hover{ box-shadow:0 14px 30px -18px rgba(0,0,0,0.35); transform:translateY(-2px); }
+  .course-card .price-row a.btn::after{ content:""; position:absolute; inset:0; z-index:1; }
+  .course-card:focus-within{ outline:2px solid var(--teal); outline-offset:2px; }
   .course-thumb {
   height: 150px;
   position: relative;
